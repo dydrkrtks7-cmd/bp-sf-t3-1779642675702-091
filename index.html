@@ -1,214 +1,536 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>프록시 보안 리서치 및 기술 인프라 저널</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-color: #ffffff;
-      --text-color: #0f172a;
-      --accent-color: #3b82f6;
-      --muted-color: #64748b;
-      --border-color: #e2e8f0;
-      --font-swiss: 'Inter', 'Noto Sans KR', sans-serif;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: var(--font-swiss);
-      line-height: 1.7;
-      letter-spacing: -0.01em;
-      padding: 0 24px;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 60px 0;
-    }
-    header {
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 24px;
-      margin-bottom: 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
-    .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      color: var(--text-color);
-    }
-    nav { display: flex; gap: 20px; }
-    nav a {
-      color: var(--muted-color);
-      text-decoration: none;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
-    nav a:hover { color: var(--accent-color); }
-    main { padding-bottom: 60px; }
-    .meta-tag {
-      font-size: 0.75rem;
-      font-family: monospace;
-      text-transform: uppercase;
-      color: var(--accent-color);
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      margin-bottom: 16px;
-      display: inline-block;
-    }
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.03em;
-      color: var(--text-color);
-      margin-bottom: 32px;
-    }
-    .content {
-      font-size: 1.05rem;
-      color: var(--text-color);
-      margin-bottom: 48px;
-      font-weight: 300;
-    }
-    .content p { margin-bottom: 20px; }
-    .juice-link {
-      color: var(--accent-color);
-      text-decoration: none;
-      border-bottom: 1px solid var(--accent-color);
-      font-weight: 600;
-      transition: all 0.2s ease;
-    }
-    .juice-link:hover {
-      background-color: rgba(59, 130, 246, 0.05);
-    }
-    .post-grid {
-      border-top: 1px solid var(--border-color);
-      padding-top: 40px;
-      margin-top: 40px;
-    }
-    .grid-title {
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted-color);
-      margin-bottom: 24px;
-    }
-    .posts-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .post-card {
-      border: 1px solid var(--border-color);
-      padding: 24px;
-      border-radius: 4px;
-      text-decoration: none;
-      color: var(--text-color);
-      transition: all 0.2s ease;
-    }
-    .post-card:hover {
-      border-color: var(--accent-color);
-      transform: translateY(-2px);
-    }
-    .post-card h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .post-card p {
-      font-size: 0.9rem;
-      color: var(--muted-color);
-      font-weight: 300;
-    }
-    footer {
-      border-top: 1px solid var(--border-color);
-      padding-top: 24px;
-      margin-top: 60px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.8rem;
-      color: var(--muted-color);
-    }
-    footer a { color: var(--muted-color); text-decoration: none; }
-    footer a:hover { color: var(--accent-color); }
-    @media(max-width: 768px) {
-      header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      h1 { font-size: 1.8rem; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PBN 빌더 마포 | 프록시 보안 & 타이틀 워밍 | Aegis Warmer</title>
+<meta name="description" content="마포 PBN 빌더 전문가입니다. 프록시 보안과 IP 워밍 (Title Warmer)으로 구글 알고리즘을 우회하는 전략적 백링크를 구축합니다. 티어 3 사이트의 진짜 얼굴을 만나보세요.">
+<meta name="keywords" content="PBN 빌더, 마포 PBN, 프록시 보안, 타이틀 워밍, IP 워밍, 개사육장, 백링크, SEO, 구글 상위노출, Aegis Warmer">
+<meta name="bpaas-design-system" content="brutalist-avantgarde">
+<meta name="bpaas-design-theme" content="kr-neon-void">
+<link rel="canonical" href="https://sf-t3-1779642675702-091.pages.dev">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sf-t3-1779642675702-091.pages.dev">
+<meta property="og:title" content="PBN 빌더 마포 | 프록시 보안 & 타이틀 워밍">
+<meta property="og:description" content="아름다운 척하는 SEO 는 이제 그만. 마포에서 운영하는 거친 PBN 빌더와 프록시 보안의 실체.">
+<meta property="og:image" content="https://via.placeholder.com/1200x630/000000/ff3b00?text=PBN+WARZONE">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://sf-t3-1779642675702-091.pages.dev">
+<meta property="twitter:title" content="PBN 빌더 마포 | 프록시 보안 & 타이틀 워밍">
+<meta property="twitter:description" content="아름다운 척하는 SEO 는 이제 그만. 마포에서 운영하는 거친 PBN 빌더와 프록시 보안의 실체.">
+<meta property="twitter:image" content="https://via.placeholder.com/1200x630/000000/ff3b00?text=PBN+WARZONE">
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Aegis Warmer - PBN Builder Mapo",
+  "image": "https://sf-t3-1779642675702-091.pages.dev/og-image.jpg",
+  "telephone": "010-6279-0862",
+  "url": "https://sf-t3-1779642675702-091.pages.dev",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Mapo-gu",
+    "addressRegion": "Seoul",
+    "addressCountry": "KR"
+  },
+  "priceRange": "$$",
+  "description": "마포 기반의 프록시 보안 및 PBN 빌더 서비스. IP 워밍과 타이틀 워밍을 통한 고성능 백링크 제공."
+}
+</script>
+
+<style>
+/* RESET & BASE */
+:root {
+  --primary: #000000;
+  --secondary: #ffffff;
+  --accent: #ff3b00;
+  --font-stack: 'Impact', 'Arial Black', 'Helvetica Neue', sans-serif;
+  --mono-stack: 'Courier New', Courier, monospace;
+  --border-width: 4px;
+  --space-unit: 24px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--secondary);
+  color: var(--primary);
+  font-family: var(--font-stack);
+  line-height: 1.2;
+  overflow-x: hidden;
+  font-size: 18px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3, h4 {
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 0.9;
+}
+
+h1 { font-size: clamp(3rem, 10vw, 8rem); }
+h2 { font-size: clamp(2.5rem, 8vw, 6rem); }
+h3 { font-size: 2rem; }
+
+p {
+  font-family: var(--mono-stack);
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.text-accent { color: var(--accent); }
+.text-outline {
+  -webkit-text-stroke: 2px var(--primary);
+  color: transparent;
+}
+
+/* LAYOUT UTILS */
+.container {
+  width: 100%;
+  padding: 0 var(--space-unit);
+}
+
+.section {
+  padding: 72px 0;
+  border-bottom: var(--border-width) solid var(--primary);
+  position: relative;
+}
+
+.section-gap {
+  margin-bottom: 120px;
+}
+
+/* HEADER */
+header {
+  border-bottom: var(--border-width) solid var(--primary);
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: var(--secondary);
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  background: var(--primary);
+  color: var(--secondary);
+  padding: 5px 10px;
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+
+.nav-toggle {
+  font-family: var(--mono-stack);
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid var(--primary);
+  padding: 5px 10px;
+  background: var(--accent);
+  color: var(--secondary);
+}
+
+/* HERO SECTION */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      var(--secondary),
+      var(--secondary) 10px,
+      #f0f0f0 10px,
+      #f0f0f0 20px
+    );
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  mix-blend-mode: difference;
+  color: var(--secondary); 
+  /* Fallback for mix-blend-mode issues on white bg patterns */
+}
+.hero-content h1 { color: var(--primary); } /* Override mix-blend for readability */
+
+.hero-badge {
+  background: var(--accent);
+  color: var(--secondary);
+  padding: 10px 20px;
+  font-family: var(--mono-stack);
+  display: inline-block;
+  margin-bottom: 24px;
+  border: 2px solid var(--primary);
+  box-shadow: 8px 8px 0px var(--primary);
+}
+
+.hero-graphic {
+  position: absolute;
+  right: -5%;
+  top: 20%;
+  width: 40vw;
+  height: 40vw;
+  background: var(--primary);
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0.1;
+}
+
+/* SERVICES GRID */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0;
+  border: var(--border-width) solid var(--primary);
+}
+
+.service-card {
+  border: var(--border-width) solid var(--primary);
+  padding: 48px;
+  background: var(--secondary);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.service-card:hover {
+  background: var(--primary);
+  color: var(--secondary);
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px var(--accent);
+}
+
+.service-card h3 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  border-bottom: 4px solid var(--accent);
+  display: inline-block;
+}
+
+.service-card:hover h3 {
+  border-color: var(--secondary);
+}
+
+/* REVIEWS (UGC) */
+.reviews-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  overflow-x: auto;
+  padding-bottom: 24px;
+}
+
+.review-card {
+  min-width: 300px;
+  background: #f4f4f4;
+  border: 3px solid var(--primary);
+  padding: 24px;
+  font-family: var(--mono-stack);
+  position: relative;
+}
+
+.review-card::before {
+  content: "VERIFIED USER";
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: var(--accent);
+  color: var(--secondary);
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  border: 2px solid var(--primary);
+}
+
+.stars { color: var(--accent); font-size: 1.5rem; }
+
+/* CTA SECTION */
+.cta-section {
+  background: var(--primary);
+  color: var(--secondary);
+  text-align: center;
+  padding: 120px 24px;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--secondary);
+  font-size: 2rem;
+  padding: 20px 40px;
+  border: 4px solid var(--secondary);
+  margin-top: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.cta-btn:hover {
+  transform: scale(1.05) rotate(1deg);
+  background: var(--secondary);
+  color: var(--primary);
+  border-color: var(--accent);
+}
+
+/* FOOTER */
+footer {
+  background: var(--secondary);
+  border-top: var(--border-width) solid var(--primary);
+  padding: 48px 24px;
+  font-family: var(--mono-stack);
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+/* MOBILE NAV OVERLAY */
+.mobile-menu {
+  position: fixed;
+  top: 85px; /* header height approx */
+  left: 0;
+  width: 100%;
+  background: var(--primary);
+  color: var(--secondary);
+  padding: 24px;
+  transform: translateY(-150%);
+  transition: transform 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 999;
+  border-bottom: 4px solid var(--accent);
+}
+
+.mobile-menu.active {
+  transform: translateY(0);
+}
+
+.mobile-menu a {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  h1 { font-size: 3.5rem; }
+  .section { padding: 48px 0; }
+  .service-card { padding: 24px; }
+  .hero-graphic { width: 80vw; height: 80vw; top: 10%; }
+}
+</style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <a href="/" class="logo">T3.SWISS</a>
-      <nav><a href="index.html">HOME</a> | <a href="sitemap.xml">SITEMAP</a></nav>
-    </header>
-    <main>
-      <div class="meta-tag">SWISS ACCENTED GRID SYSTEM</div>
-      <h1>프록시 보안 리서치 및 기술 인프라 저널</h1>
-      <div class="content">
-        환영합니다. 본 블로그 저널은 현대적이고 세련된 <strong>프록시 보안</strong> 분야의 실용 정보와 심도 있는 기술 에세이를 기록하는 전문 아카이브 공간입니다. 아래의 엄선된 아티클 리스트를 통해 다양한 인사이트를 확인하시기 바랍니다.
+
+<!-- Header -->
+<header>
+  <div class="logo">AEGIS_WARMER_V3</div>
+  <div class="nav-toggle" onclick="toggleMenu()">MENU //</div>
+</header>
+
+<!-- Mobile Menu -->
+<nav class="mobile-menu" id="mobileNav">
+  <a href="#services">SERVICES</a>
+  <a href="#reviews">REVIEWS</a>
+  <a href="#contact">CONTACT</a>
+  <a href="tel:01062790862" style="color: var(--accent);">CALL NOW</a>
+</nav>
+
+<main>
+  <!-- Hero Section -->
+  <section class="section hero">
+    <div class="hero-graphic"></div>
+    <div class="container hero-content">
+      <div class="hero-badge">TIER 3 PBN SITE // MAPO DISTRICT</div>
+      <h1>PBN BUILDER<br><span class="text-accent">PROXY</span> SECURITY</h1>
+      <p style="max-width: 600px; margin-top: 24px; font-weight: bold;">
+        우리는 SEO 를 예술이라고 말하지 않습니다. 우리는 전쟁이라고 말합니다. 
+        마포에서 운영되는 이 개사육장은 당신의 도메인 권위를 위해 존재합니다.
+        프록시 보안? 타이틀 워밍? 그냥 전화하세요.
+      </p>
+      <a href="tel:01062790862" class="cta-btn" style="font-size: 1.2rem; padding: 15px 30px; margin-top: 30px;">
+        CONSULTATION START ///
+      </a>
+    </div>
+    <!-- Decorative skewed block -->
+    <div style="position: absolute; bottom: -50px; right: -50px; width: 200px; height: 200px; background: var(--accent); transform: rotate(15deg); z-index: 3; border: 4px solid var(--primary);"></div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 style="margin-bottom: 48px; text-align: right;">// OUR_WEAPONS</h2>
+      <div class="services-grid">
+        <article class="service-card">
+          <h3>PBN BUILDER</h3>
+          <p>
+            구글이 싫어하는 것을 우리는 사랑합니다. 고품질 도메인을 재활용하여 당신의 메인 사이트를 위한 강력한 백링크 네트워크를 구축합니다. 발각되지 않는 것이 핵심입니다.
+          </p>
+          <p style="font-family: var(--mono-stack); color: var(--accent);">>> STATUS: ACTIVE</p>
+        </article>
+
+        <article class="service-card">
+          <h3>PROXY SECURITY</h3>
+          <p>
+            당신의 IP 가 노출되면 게임은 끝입니다. 마포 기반의 고급 프록시 보안 시스템을 통해 트래픽을 은폐하고, sécurité 를 확보합니다. 우리는 유령처럼 작동합니다.
+          </p>
+          <p style="font-family: var(--mono-stack); color: var(--accent);">>> STATUS: ENCRYPTED</p>
+        </article>
+
+        <article class="service-card">
+          <h3>TITLE WARMING</h3>
+          <p>
+            새 도메인을 바로 던지지 마세요. 죽습니다. IP 워밍과 타이틀 워밍을 통해 도메인에 '생명'을 불어넣은 후 링크를 심습니다. 자연스러운 성장을 가장한 인위적 조작입니다.
+          </p>
+          <p style="font-family: var(--mono-stack); color: var(--accent);">>> STATUS: HEATING UP</p>
+        </article>
       </div>
-      
-      
-      <div class="post-grid">
-        <div class="grid-title">Recent Post Archive</div>
-        <div class="posts-list">
-          
-        <a href="posts/normal-1.html" class="post-card">
-          <h3>프록시 보안: 라이프스타일: 일상 최적화 가이드</h3>
-          <p>바쁘게 흘러가는 도심 라이프 속에서 나만의 시간적 여유와 쾌적한 데일리 습관을 디자인하는 것은 삶의 질을 극대화하는 가장 첫 번째 과제입니다. 미니멀한 마인드와 루틴 설계는 큰 힘...</p>
-        </a>
-      
+    </div>
+  </section>
 
-        <a href="posts/normal-2.html" class="post-card">
-          <h3>프록시 보안: 라이프스타일: 공간 미학과 정리 정돈</h3>
-          <p>가구 배치와 조명 연출 하나만으로 평범한 방을 아늑한 아지트로 변모시키는 공간 정리 팁은 내 멘탈 에너지를 가득 채워주는 보이지 않는 강력한 힘을 발휘하는 일상 속 예술입니다....</p>
-        </a>
+  <!-- Reviews Section (UGC) -->
+  <section id="reviews" class="section" style="background: #fff; border-bottom: none;">
+    <div class="container">
+      <h2 style="margin-bottom: 48px; background: var(--primary); color: var(--secondary); display: inline-block; padding: 10px;">// USER_LOGS</h2>
       
+      <div class="reviews-container">
+        <!-- Review 1 -->
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p style="margin-top: 10px; font-size: 0.9rem;">"처음엔 반신반의했는데, 워밍 작업 후 지수 회복 속도가 미쳤습니다. 마포 오피스 방문해서 커피 한 잔 하면서 상담받은 게 결정적이었네요."</p>
+          <div style="margin-top: 20px; font-weight: bold; border-top: 2px solid var(--primary); padding-top: 10px;">
+            Nick: SEO_King_88<br>
+            Date: 2023.10.12
+          </div>
+        </div>
 
-        <a href="posts/normal-3.html" class="post-card">
-          <h3>프록시 보안: 라이프스타일: 디지털 디톡스와 아날로그 쉼표</h3>
-          <p>끊임없이 쏟아지는 푸시 알림과 스마트폰의 피로로부터 온전히 격리된 채, 하루에 단 30분씩이라도 책을 읽거나 명상을 즐기는 아날로그 디톡스 루틴은 정신 건강을 지키는 든든한 방패입...</p>
-        </a>
-      
+        <!-- Review 2 -->
+        <div class="review-card">
+          <div class="stars">★★★★☆</div>
+          <p style="margin-top: 10px; font-size: 0.9rem;">"프록시 보안 설정이 좀 복잡했는데 원장님이 다 세팅해주심. PBN 빌더 품질은 확실함. 다만 일정이 좀 빡빡해서 대기 시간 있음."</p>
+          <div style="margin-top: 20px; font-weight: bold; border-top: 2px solid var(--primary); padding-top: 10px;">
+            Nick: Dev_Jin<br>
+            Date: 2023.11.05
+          </div>
+        </div>
 
-        <a href="posts/juice-1.html" class="post-card">
-          <h3>라이프스타일 에디터가 강력 추천하는 PBN 빌더 알짜 가이드</h3>
-          <p>복잡하고 정신없이 굴러가는 하루 일상 속에서 나만의 아날로그 감성과 행복한 쉼표를 기획하는 세련된 에디터분들이라면, 삶의 질을 높여주는 오프라인 휴식 공간의 정보와 최적의 혜택을 ...</p>
-        </a>
-      
-
-        <a href="posts/juice-2.html" class="post-card">
-          <h3>라이프스타일 에디터가 강력 추천하는 PBN 빌더 알짜 가이드</h3>
-          <p>복잡하고 정신없이 굴러가는 하루 일상 속에서 나만의 아날로그 감성과 행복한 쉼표를 기획하는 세련된 에디터분들이라면, 삶의 질을 높여주는 오프라인 휴식 공간의 정보와 최적의 혜택을 ...</p>
-        </a>
-      
+        <!-- Review 3 -->
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p style="margin-top: 10px; font-size: 0.9rem;">"타이틀 워밍 효과 진짜임.Previously dead domain 이 이제 검색 엔진에서 살아났어요. 추천합니다."</p>
+          <div style="margin-top: 20px; font-weight: bold; border-top: 2px solid var(--primary); padding-top: 10px;">
+            Nick: Marketing_Pro<br>
+            Date: 2023.12.01
+          </div>
         </div>
       </div>
-    </main>
-    <footer>
-      <div>&copy; 2026 T3.SWISS. ALL RIGHTS RESERVED.</div>
-      <div>
-        <a href="sitemap.xml">SITEMAP</a> | 
-        <a href="#">PRIVACY</a> | 
-        <a href="#">DISCLAIMER</a>
+    </div>
+  </section>
+
+  <!-- Contact / CTA Section -->
+  <section id="contact" class="cta-section">
+    <div class="container">
+      <h2 style="font-size: 3rem; margin-bottom: 24px;">READY TO DOMINATE?</h2>
+      <p style="color: var(--secondary); max-width: 600px; margin: 0 auto;">
+        이론은 그만. 결과가 모든 것을 증명합니다. 
+        마포에서 당신만의 PBN 전략을 수립하세요.
+      </p>
+      
+      <div style="margin-top: 60px; border: 2px dashed var(--accent); padding: 40px; display: inline-block; background: rgba(255,255,255,0.1);">
+        <p style="color: var(--accent); font-weight: bold; margin-bottom: 10px;">DIRECT LINE</p>
+        <a href="tel:01062790862" style="font-size: 3rem; color: var(--secondary); text-decoration: underline;">010-6279-0862</a>
+        <p style="margin-top: 10px; font-family: var(--mono-stack);">Mapo-gu, Seoul</p>
       </div>
-    </footer>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+
+
+
+<!-- PBN Recent Posts Feed Section -->
+<section class="recent-posts-section" aria-label="최신 글 피드" style="padding:60px 20px;background:#f7fafc;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0">
+  <div style="max-width:1100px;margin:0 auto">
+    <h3 style="font-size:1.5rem;font-weight:800;color:#1a202c;text-align:center;margin-bottom:32px;letter-spacing:-0.025em">📝 최신 관련 포스트</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+      
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-06-10">2026-06-10</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">PBN 빌더 현장에서 놓치기 쉬운 포인트를 기록해봤다</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">### 포스트 메타정보 포스트 기획 테마: PBN 빌더 현장에서 놓치기 쉬운 포인트를 기록해봤다 백링크 지시: 본문 내러티브 속에서 다음 링크를 자연스러운 발견으로 녹여라: 마포 셔츠룸 리얼 후기 소셜 마케팅 가이드 --- ## 키워드 컨텍스트이 글의 배경 비즈니스 키</p>
+      </div>
+      <a href="posts/field_note-002-zk6xa9.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-06-10">2026-06-10</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">PBN 빌더 솔직 후기 — 3개월 써본 사람의 리얼 리뷰</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">### 제목: 창작한 제목"IMDB 3점대 영화에서의 타일러 더든, 비평가 시점에서의 비화" 아, 진짜... 파이트 클럽 영화 전체에 걸쳐 타일러 더든이 등장하기 전 싱글 프레임으로 삽입된 장면들을 총정리해보면 어떨까? ## 소제목1. **IMDB 3점대 작품에서의 특</p>
+      </div>
+      <a href="posts/review-001-zk6xa9.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    </div>
   </div>
+</section>
+<footer>
+  <div>
+    <strong>AEGIS WARMER</strong><br>
+    &copy; 2024 All Rights Reserved.<br>
+    Designed in the Void.
+  </div>
+  <div style="text-align: right;">
+    <a href="#" style="text-decoration: underline;">PRIVACY POLICY</a><br>
+    <a href="#" style="text-decoration: underline;">TERMS OF SERVICE</a>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('mobileNav');
+    nav.classList.toggle('active');
+  }
+</script>
+
 </body>
 </html>
